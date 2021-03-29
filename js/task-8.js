@@ -1,4 +1,3 @@
-// после каждой очистки делает на 1блок дивов больше
 const inputEl = document.querySelector('input');
 const btnRenderEl = document.querySelector('button[data-action="render"]');
 const btnDestroyEl = document.querySelector('button[data-action="destroy"]');
@@ -9,8 +8,9 @@ inputEl.addEventListener('blur', onInputBlur);
 
 function onInputBlur(e) {
   amount = e.currentTarget.value;
-  btnRenderEl.addEventListener('click', onBtnRenderElClick.bind(amount));
 }
+
+btnRenderEl.addEventListener('click', onBtnRenderElClick.bind(amount));
 
 function onBtnRenderElClick() {
   const divArr = [];
@@ -30,9 +30,9 @@ function onBtnRenderElClick() {
     divArr.push(divEl);
   }
   boxesEl.append(...divArr);
-  btnDestroyEl.addEventListener('click', onBtnDestroyElClick);
 }
 
+btnDestroyEl.addEventListener('click', onBtnDestroyElClick);
 function onBtnDestroyElClick() {
   boxesEl.innerHTML = '';
 }
